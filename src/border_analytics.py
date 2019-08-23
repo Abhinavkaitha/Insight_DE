@@ -78,15 +78,15 @@ def write(data_dict):
             for dat, vals2 in vals[0].items():
                 row3 = dict({'Date': dat, 'Value': vals2[0], 'Average': type_check(vals2[1])}, **row2)
                 rows.append(row3)
-
-        try:
-            with open(output_file, 'w') as csvfile:
-                writer = csv.DictWriter(csvfile, fieldnames=['Border', 'Date', 'Measure', 'Value', 'Average'])
-                writer.writeheader()
-                for data in rows:
-                    writer.writerow(data)
-        except IOError:
-            print("I/O error")
+    rows=sorted(rows, key=lambda i: (i['Date'],i['Measure'],i['Border']),reverse=True)
+    try:
+        with open(output_file, 'w') as csvfile:
+            writer = csv.DictWriter(csvfile, fieldnames=['Border', 'Date', 'Measure', 'Value', 'Average'])
+            writer.writeheader()
+            for data in rows:
+                writer.writerow(data)
+    except IOError:
+        print("I/O error")
 
 
 if __name__ == "__main__":
