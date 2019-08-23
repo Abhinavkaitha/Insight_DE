@@ -78,7 +78,7 @@ def write(data_dict):
             for dat, vals2 in vals[0].items():
                 row3 = dict({'Date': dat, 'Value': vals2[0], 'Average': type_check(vals2[1])}, **row2)
                 rows.append(row3)
-    rows=sorted(rows, key=lambda i: (i['Date'],i['Measure'],i['Border']),reverse=True)
+    rows = sorted(rows, key=lambda i: (i['Date'], i['Value'],i['Measure'], i['Border']),reverse=True)
     try:
         with open(output_file, 'w') as csvfile:
             writer = csv.DictWriter(csvfile, fieldnames=['Border', 'Date', 'Measure', 'Value', 'Average'])
