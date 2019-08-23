@@ -87,4 +87,4 @@ To execute the script move to the main directory of the project and run the foll
 python ./src/border_analytics.py ./input/Border_Crossing_Entry_Data.csv ./output/report.csv
 ```
 
-Alternatively, you can execute `./run.sh` script to run the codes for a sample file and perform a unit test.
+Alternatively, you can execute `./run.sh` script to run the code, move to the insight_testsuite and execute `./run_tests.sh` script to run all the test cases.
