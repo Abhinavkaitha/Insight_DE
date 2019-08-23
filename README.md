@@ -27,11 +27,38 @@ US-Mexico Border,01/01/2019 12:00:00 AM,Pedestrians,56810,0
 
 * The time is assumed to be 12:00:00 AM on all the dates, i.e if the border crossing is recorded at two different times on the same day, then they are not treated as same dates.
 
+* The format of the time stamp is assumed to be remained same throught the data. If the format is changed, the program will skip that row.
+
 * Even if these are some missing values in the csv file, it is assumed that those missing values will be in the form of empty strings.
 
 * The values in each line are expected to be in the same order.
 
 ## Different functions in the code
+
+### round_fun:
+
+The default rounding function was rounding the number 114486.5 to 114486. But, we want the function to round it to 114487. This function will take care of that.
+
+Input: Any real number
+Output: Nearest integer to the input real number
+
+### type_check:
+
+I used int as a placeholder for the average value in the code. If it remains as int by the end of calculations, then I'm replacing it with 0. This function will check the type of the element at that index and if it is not an integer, it will replace it with zero.
+
+Input: Any datatype
+Output: If the input is integer, it will return the same integer, otherwise, it will return zero.
+
+### is_date:
+
+Is date is used to check whether the time stamp is according to the format or not.
+
+Input: Any string
+Output: 
+
+### is_int:
+
+Is_int is used to check whether the Value is an integer or not.
 
 ## Summary
 The `border_analytics.py` script reads the input file line by line and creates two dictionaries `Dic` (i.e, `{drug_name:total_cost, }`) to keep track of drug costs and `doctor_names` (i.e., `{drug_name:unique_doctor_names}`) to keep track of unique doctor names for each drug. Consequently, the dictionary `drug_cost` is sorted by the value (and key if there is a tie) and written in the desired comma separated output format. 
