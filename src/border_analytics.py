@@ -1,7 +1,7 @@
 import csv
 import collections
 import sys
-import datetime
+import datetime as dt
 
 input_file = sys.argv[1]
 output_file = sys.argv[2]
