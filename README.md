@@ -1,4 +1,4 @@
-# Scripts for Insight Data Engineering coding challenge
+# Insight Data Engineering coding challenge
 This GitHub repository contains my solution to the [coding challenge](https://github.com/InsightDataScience/border-crossing-analysis) for the [Insight Data Engineering Fellows Program](https://www.insightdataengineering.com/).
 
 Given a comma separated input file with 8 columns, e.g.,
