@@ -57,11 +57,25 @@ Is date is used to check whether the time stamp is according to the format or no
 
 Input: Any string
 
-Output: 
+Output: If the input time stamp has this '03/01/2019 12:00:00 AM' format, then True, otherwise false.
 
 ### is_int:
 
 Is_int is used to check whether the Value is an integer or not.
+
+Input: Any string.
+
+Output: If the string is integer, then True, otherwise, False.
+
+### validate:
+
+Checks whwther there are any missing values in any column and also whether there any invalid data in Value and Date columns.
+
+Input: Border, Date, Measure, value
+
+Output: If any of the input values are missing or if the Date is not according to the format or if there are values other than integers in the column Value, then the output is False.
+
+### read: 
 
 ## Summary
 The `border_analytics.py` script reads the input file line by line and creates two dictionaries `Dic` (i.e, `{drug_name:total_cost, }`) to keep track of drug costs and `doctor_names` (i.e., `{drug_name:unique_doctor_names}`) to keep track of unique doctor names for each drug. Consequently, the dictionary `drug_cost` is sorted by the value (and key if there is a tie) and written in the desired comma separated output format. 
