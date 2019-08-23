@@ -20,7 +20,7 @@ def type_check(x):
 def is_date(string):
 
     try:
-      dt.datetime.strptime(e, '%m/%d/%Y %I:%M:%S %p')
+      dt.datetime.strptime(string, '%m/%d/%Y %I:%M:%S %p')
       return True
     
     except ValueError:
