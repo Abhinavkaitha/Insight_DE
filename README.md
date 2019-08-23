@@ -183,6 +183,32 @@ Input: Nested dictionary from data structure function.
 
 Output: csv file.
 
+## Test Cases
+
+### test_1: 
+provided by the insight team
+
+### test_2:
+If there are any missing values in `Border` or `Measure` or `Value` or `Date`, then the entire row must be skipped. This test case checks this condition.For ex:
+
+```
+Norton,Vermont,211,US-Canada Border,,Trains,19,POINT (-71.79528000000002 45.01)
+Presidio,Texas,2403,US-Mexico Border,02/01/2019 12:00:00 AM,,15272,POINT (-104.37167 29.56056)
+
+```
+Since the Date is missing in the first row and Measure is missing in the second row, these two rows will be skipped.
+
+### test_3:
+If the elements in `Value` or `Date` are not according to the format, then those rows must be skipped. This test case checks this. 
+
+```
+Derby Line,Vermont,209,US-Canada Border,03/01/2019 12:00xyz,Truck Containers Full,6483,POINT (-72.09944 45.005)
+Calexico,California,2503,US-Mexico Border,03/01/2019 12:00:00 AM,Pedestrians,346Ft,POINT (-115.49806000000001 32.67889)
+Presidio,Texas,2403,US-Mexico Border,02/01/2019 12:00:00 AM,Pedestrians,152x,POINT (-104.37167 29.56056)
+
+```
+The first row has the wrong `Date` format. The second and third has wrong `Value` format
+
 ## Summary
 The `border_analytics.py` script reads the input file line by line and creates two dictionaries `Dic` (i.e, `{drug_name:total_cost, }`) to keep track of drug costs and `doctor_names` (i.e., `{drug_name:unique_doctor_names}`) to keep track of unique doctor names for each drug. Consequently, the dictionary `drug_cost` is sorted by the value (and key if there is a tie) and written in the desired comma separated output format. 
 
