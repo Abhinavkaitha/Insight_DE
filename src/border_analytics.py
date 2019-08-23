@@ -1,6 +1,7 @@
 import csv
 import collections
 import sys
+from dateutil.parser import parse
 
 input_file = sys.argv[1]
 output_file = sys.argv[2]
