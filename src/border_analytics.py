@@ -16,6 +16,33 @@ def type_check(x):
         return x
     return 0
 
+def is_date(string):
+
+    try:
+        parse(string, fuzzy=False)
+        return True
+
+    except ValueError:
+        return False
+
+
+def is_int(string):
+    try:
+        int(string)
+        return True
+    except ValueError:
+        return False
+
+
+def validate(Border, Date, Measure, Value):
+    if Border == "" or Date == "" or Measure == "" or Value == "":
+        return False
+
+    if not is_date(Date) or not is_int(Value):
+        return False
+
+    return True
+
 def read(file):
     nested_list = []
     with open(file, newline='') as csvfile:
