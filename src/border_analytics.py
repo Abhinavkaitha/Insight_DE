@@ -1,7 +1,7 @@
 import csv
 import collections
 import sys
-from dateutil.parser import parse
+import datetime
 
 input_file = sys.argv[1]
 output_file = sys.argv[2]
@@ -20,11 +20,11 @@ def type_check(x):
 def is_date(string):
 
     try:
-        parse(string, fuzzy=False)
-        return True
-
+      dt.datetime.strptime(e, '%m/%d/%Y %I:%M:%S %p')
+      return True
+    
     except ValueError:
-        return False
+      return False
 
 
 def is_int(string):
