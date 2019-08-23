@@ -207,7 +207,7 @@ Calexico,California,2503,US-Mexico Border,03/01/2019 12:00:00 AM,Pedestrians,346
 Presidio,Texas,2403,US-Mexico Border,02/01/2019 12:00:00 AM,Pedestrians,152x,POINT (-104.37167 29.56056)
 
 ```
-The first row has the wrong `Date` format. The second and third has wrong `Value` format
+The first row has the wrong `Date` format. The second and third has `Value` in thw wrong format. So, these rows will be skipped.
 
 ## Summary
 The `border_analytics.py` script reads the input file line by line and creates two dictionaries `Dic` (i.e, `{drug_name:total_cost, }`) to keep track of drug costs and `doctor_names` (i.e., `{drug_name:unique_doctor_names}`) to keep track of unique doctor names for each drug. Consequently, the dictionary `drug_cost` is sorted by the value (and key if there is a tie) and written in the desired comma separated output format. 
