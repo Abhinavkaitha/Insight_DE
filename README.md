@@ -40,6 +40,7 @@ US-Mexico Border,01/01/2019 12:00:00 AM,Pedestrians,56810,0
 The default rounding function was rounding the number 114486.5 to 114486. But, we want the function to round it to 114487. This function will take care of that.
 
 Input: Any real number
+
 Output: Nearest integer to the input real number
 
 ### type_check:
@@ -47,6 +48,7 @@ Output: Nearest integer to the input real number
 I used int as a placeholder for the average value in the code. If it remains as int by the end of calculations, then I'm replacing it with 0. This function will check the type of the element at that index and if it is not an integer, it will replace it with zero.
 
 Input: Any datatype
+
 Output: If the input is integer, it will return the same integer, otherwise, it will return zero.
 
 ### is_date:
@@ -54,6 +56,7 @@ Output: If the input is integer, it will return the same integer, otherwise, it 
 Is date is used to check whether the time stamp is according to the format or not.
 
 Input: Any string
+
 Output: 
 
 ### is_int:
