@@ -75,6 +75,9 @@ def data_structure(data_nested_list):
         Measure = row[5]
 
         Value = row[6]
+        
+        if not validate(Border, Date, Measure, Value):
+            continue
 
         try:
             new_value = int(Value) + data_dict[Border][Measure][tuple_first_element][Date][tuple_first_element]
