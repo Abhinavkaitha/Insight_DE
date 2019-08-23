@@ -77,6 +77,69 @@ Output: If any of the input values are missing or if the Date is not according t
 
 ### read: 
 
+This will change the given input file to a nested list. Each line is stored as a list with each column as an element.
+
+Input: csv file
+
+Output: Nestes list with structure
+```
+[['Derby Line',
+  'Vermont',
+  '209',
+  'US-Canada Border',
+  '03/01/2019 12:00:00 AM',
+  'Truck Containers Full',
+  '6483',
+  'POINT (-72.09944 45.005)'],
+ ['Norton',
+  'Vermont',
+  '211',
+  'US-Canada Border',
+  '03/01/2019 12:00:00 AM',
+  'Trains',
+  '19',
+  'POINT (-71.79528000000002 45.01)']]
+```
+
+## data_structure:
+
+The input of this function is the nested list obtained from the previous function. This is changed to a nested dictionary.
+with different borders as keys.
+The values are again dictionaries.
+
+   These dictinaries has measure as keys. 
+   The values are tuples with two elements. 
+   
+      The first one is a dictionary with time stamp as keys and the second element gives the sum of total crossings for that combination of border and measure. 
+      The dictionary in the first elemt of this tuple has values as tuples: the first one is the number of people crossed that border with that measure duirng that time stamp. This will add the crossings across different ports as well 
+
+For ex: \\
+Hidalgo,Texas,2305,US-Mexico Border,02/01/2019 12:00:00 AM,Pedestrians,156891,POINT (-98.26278 26.1)
+Presidio,Texas,2403,US-Mexico Border,02/01/2019 12:00:00 AM,Pedestrians,15272,POINT (-104.37167 29.56056)
+
+The second element will give us the cumulative average of crossings rounded to the nearest whole number, for that combination of Border and Measure, or means of crossing.
+
+Input: Nested list obtained from read function.
+
+Output: Nested dictionary with structure
+```
+            {'US-Canada Border': 
+                         {'Trains': ({'03/01/2019 12:00:00 AM': (19, int)},
+                           19),
+                          'Truck Containers Empty': ({'02/01/2019 12:00:00 AM': (1319,
+                             int)},
+                           1319),
+                          'Truck Containers Full': ({'03/01/2019 12:00:00 AM': (6483,
+                             int)},
+                           6483)}),
+             'US-Mexico Border': 
+                         {'Pedestrians': ({'01/01/2019 12:00:00 AM': (56810,
+                             int),
+                            '02/01/2019 12:00:00 AM': (172163, 56810),
+                            '03/01/2019 12:00:00 AM': (346158, 114487)},
+                           575131)})})
+```
+
 ## Summary
 The `border_analytics.py` script reads the input file line by line and creates two dictionaries `Dic` (i.e, `{drug_name:total_cost, }`) to keep track of drug costs and `doctor_names` (i.e., `{drug_name:unique_doctor_names}`) to keep track of unique doctor names for each drug. Consequently, the dictionary `drug_cost` is sorted by the value (and key if there is a tie) and written in the desired comma separated output format. 
 
