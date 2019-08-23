@@ -23,6 +23,16 @@ US-Mexico Border,02/01/2019 12:00:00 AM,Pedestrians,172163,56810
 US-Canada Border,02/01/2019 12:00:00 AM,Truck Containers Empty,1319,0
 US-Mexico Border,01/01/2019 12:00:00 AM,Pedestrians,56810,0
 ```
+## Assumptions
+
+* The time is assumed to be 12:00:00 AM on all the dates, i.e if the border crossing is recorded at two different times on the same day, then they are not treated as same dates.
+
+* Even if these are some missing values in the csv file, it is assumed that those missing values will be in the form of empty strings.
+
+* The values in each line are expected to be in the same order.
+
+## Different functions in the code
+
 ## Summary
 The `border_analytics.py` script reads the input file line by line and creates two dictionaries `Dic` (i.e, `{drug_name:total_cost, }`) to keep track of drug costs and `doctor_names` (i.e., `{drug_name:unique_doctor_names}`) to keep track of unique doctor names for each drug. Consequently, the dictionary `drug_cost` is sorted by the value (and key if there is a tie) and written in the desired comma separated output format. 
 
