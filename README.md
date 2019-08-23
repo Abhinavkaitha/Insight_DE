@@ -45,7 +45,7 @@ Output: Nearest integer to the input real number
 
 ### type_check:
 
-I used int as a placeholder for the average value in the code. If it remains as int by the end of calculations, then I'm replacing it with 0. This function will check the type of the element at that index and if it is not an integer, it will replace it with zero.
+int is used as a placeholder for the average value in the code. If it remains as int by the end of calculations, then int is replaced with 0. This function will check the type of the element at that index and if it is not an integer, it will replace it with zero.
 
 Input: Any datatype
 
@@ -53,7 +53,7 @@ Output: If the input is integer, it will return the same integer, otherwise, it 
 
 ### is_date:
 
-Is date is used to check whether the time stamp is according to the format or not.
+Is_date is used to check whether the time stamp is according to the format or not.
 
 Input: Any string
 
