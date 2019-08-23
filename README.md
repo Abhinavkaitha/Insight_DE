@@ -111,7 +111,7 @@ The values are again dictionaries.
    The values are tuples with two elements. 
    
 The first one is a dictionary with time stamp as keys and the second element gives the sum of total crossings for that combination of border and measure. 
-The dictionary in the first elemt of this tuple has values as tuples: the first one is the number of people crossed that border with that measure duirng that time stamp. This will add the crossings across different ports as well 
+The dictionary in the first element of this tuple has values as tuples: the first one is the number of people crossed that border with that measure duirng that time stamp. This will add the crossings across different ports as well 
 
 For ex:
 Hidalgo,Texas,2305,US-Mexico Border,02/01/2019 12:00:00 AM,Pedestrians,156891,POINT (-98.26278 26.1)
@@ -139,6 +139,49 @@ Output: Nested dictionary with structure
                             '03/01/2019 12:00:00 AM': (346158, 114487)},
                            575131)})})
 ```
+## write:
+
+The nested dictionary obtained from the above function is used to create a list of dictionaries with the required parameters in output as keys and the corresponding data as values. This list is sorted based on Date, Value, Measure and Border. This list is then written into a csv file. 
+
+Structure of the sorted list of dictionaries:
+
+```
+[{'Average': 0,
+  'Border': 'US-Canada Border',
+  'Date': '03/01/2019 12:00:00 AM',
+  'Measure': 'Truck Containers Full',
+  'Value': 6483},
+ {'Average': 0,
+  'Border': 'US-Canada Border',
+  'Date': '03/01/2019 12:00:00 AM',
+  'Measure': 'Trains',
+  'Value': 19},
+ {'Average': 114487,
+  'Border': 'US-Mexico Border',
+  'Date': '03/01/2019 12:00:00 AM',
+  'Measure': 'Pedestrians',
+  'Value': 346158},
+ {'Average': 0,
+  'Border': 'US-Canada Border',
+  'Date': '02/01/2019 12:00:00 AM',
+  'Measure': 'Truck Containers Empty',
+  'Value': 1319},
+ {'Average': 56810,
+  'Border': 'US-Mexico Border',
+  'Date': '02/01/2019 12:00:00 AM',
+  'Measure': 'Pedestrians',
+  'Value': 172163},
+ {'Average': 0,
+  'Border': 'US-Mexico Border',
+  'Date': '01/01/2019 12:00:00 AM',
+  'Measure': 'Pedestrians',
+  'Value': 56810}]
+
+```
+
+Input: Nested dictionary from data structure function.
+
+Output: csv file.
 
 ## Summary
 The `border_analytics.py` script reads the input file line by line and creates two dictionaries `Dic` (i.e, `{drug_name:total_cost, }`) to keep track of drug costs and `doctor_names` (i.e., `{drug_name:unique_doctor_names}`) to keep track of unique doctor names for each drug. Consequently, the dictionary `drug_cost` is sorted by the value (and key if there is a tie) and written in the desired comma separated output format. 
