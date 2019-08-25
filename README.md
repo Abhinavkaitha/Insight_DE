@@ -61,7 +61,7 @@ Output: If the input time stamp has this '03/01/2019 12:00:00 AM' format, then T
 
 ### is_int:
 
-Is_int is used to check whether the Value is an integer or not.
+Is_int is used to check whether the `Value` is an integer or not.
 
 Input: Any string.
 
@@ -69,15 +69,15 @@ Output: If the string is integer, then True, otherwise, False.
 
 ### valid:
 
-Checks whwther there are any missing values in any column and also whether there any invalid data in Value and Date columns.
+Checks if there are any missing values in any column and also checks if there are any elements `Value` and `Date` columns with invalid datatype.
 
-Input: Border, Date, Measure, value
+Input: complete row in the csv file
 
-Output: If any of the input values are missing or if the Date is not according to the format or if there are values other than integers in the column Value, then the output is False.
+Output: If there are any missing values in the required columns (`Border`,`Measure`,`Value`,`Date`) or if the `Date` is not according to the format or if there are values other than integers in the column `Value`, then the output is False.
 
 ### read_files: 
 
-This will change the given input file to a nested list. Each line is stored as a list with each column as an element.
+This will change the given input file to a nested list. Each line is validated and stored as a list with each column as an element. `cursor` is used to keep track of the number of valid rows and we can limit the maximum number of rows appended into the list with the help of `max_num_rows`.
 
 Input: csv file
 
@@ -141,7 +141,7 @@ Output: Nested dictionary with structure
 ```
 ## generate_report:
 
-The nested dictionary obtained from the above function is used to create a list of dictionaries with the required parameters in output as keys and the corresponding data as values. This list is sorted based on Date, Value, Measure and Border. This list is then written into a csv file. 
+The nested dictionary obtained from the above function is used to create a list of dictionaries with the required parameters in output as keys and the corresponding data as values. This list is sorted based on `Date`, `Value`, `Measure` and `Border`. This list is then written into a csv file. 
 
 Structure of the sorted list of dictionaries:
 
@@ -196,7 +196,7 @@ Norton,Vermont,211,US-Canada Border,,Trains,19,POINT (-71.79528000000002 45.01)
 Presidio,Texas,2403,US-Mexico Border,02/01/2019 12:00:00 AM,,15272,POINT (-104.37167 29.56056)
 
 ```
-Since the Date is missing in the first row and Measure is missing in the second row, these two rows will be skipped.
+Since the `Date` is missing in the first row and `Measure` is missing in the second row, these two rows will be skipped.
 
 ### test_3:
 If the elements in `Value` or `Date` are not according to the format, then those rows must be skipped. This test case checks this. 
@@ -210,7 +210,30 @@ Presidio,Texas,2403,US-Mexico Border,02/01/2019 12:00:00 AM,Pedestrians,152x,POI
 The first row has the wrong `Date` format. The second and third has `Value` in thw wrong format. So, these rows will be skipped.
 
 ## Summary
-The `border_analytics.py` script reads the input file line by line and creates two dictionaries `Dic` (i.e, `{drug_name:total_cost, }`) to keep track of drug costs and `doctor_names` (i.e., `{drug_name:unique_doctor_names}`) to keep track of unique doctor names for each drug. Consequently, the dictionary `drug_cost` is sorted by the value (and key if there is a tie) and written in the desired comma separated output format. 
+The `main.py` script reads the input file line by line and creates a dictionary `report_dict` (i.e, `{'US-Canada Border': 
+                         {'Trains': ({'03/01/2019 12:00:00 AM': (19, int)},
+                           19),
+                          'Truck Containers Empty': ({'02/01/2019 12:00:00 AM': (1319,
+                             int)},
+                           1319),
+                          'Truck Containers Full': ({'03/01/2019 12:00:00 AM': (6483,
+                             int)},
+                           6483)}),
+             'US-Mexico Border': 
+                         {'Pedestrians': ({'01/01/2019 12:00:00 AM': (56810,
+                             int),
+                            '02/01/2019 12:00:00 AM': (172163, 56810),
+                            '03/01/2019 12:00:00 AM': (346158, 114487)},
+                           575131)})})`) to keep track of the number of crossings in each month and also the running monthly average of total number of crossings for that type of crossing and border. Consequently, the required data is appended into a  list of dictionaries (i.e, `[{'Average': 0,
+  'Border': 'US-Canada Border',
+  'Date': '03/01/2019 12:00:00 AM',
+  'Measure': 'Truck Containers Full',
+  'Value': 6483},
+ {'Average': 0,
+  'Border': 'US-Canada Border',
+  'Date': '03/01/2019 12:00:00 AM',
+  'Measure': 'Trains',
+  'Value': 19}]`)and sorted based on `Border`, `Date`, `Measure` and `Value`. Finally this list is written in the desired comma separated output format. 
 
 ## Instructions
 To execute the script move to the main directory of the project and run the following in the terminal:
