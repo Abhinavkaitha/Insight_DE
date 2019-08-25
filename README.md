@@ -67,7 +67,7 @@ Input: Any string.
 
 Output: If the string is integer, then True, otherwise, False.
 
-### validate:
+### valid:
 
 Checks whwther there are any missing values in any column and also whether there any invalid data in Value and Date columns.
 
@@ -75,7 +75,7 @@ Input: Border, Date, Measure, value
 
 Output: If any of the input values are missing or if the Date is not according to the format or if there are values other than integers in the column Value, then the output is False.
 
-### read: 
+### read_files: 
 
 This will change the given input file to a nested list. Each line is stored as a list with each column as an element.
 
@@ -101,7 +101,7 @@ Output: Nestes list with structure
   'POINT (-71.79528000000002 45.01)']]
 ```
 
-## data_structure:
+## process_data:
 
 The input of this function is the nested list obtained from the previous function. This is changed to a nested dictionary.
 with different borders as keys.
@@ -139,7 +139,7 @@ Output: Nested dictionary with structure
                             '03/01/2019 12:00:00 AM': (346158, 114487)},
                            575131)})})
 ```
-## write:
+## generate_report:
 
 The nested dictionary obtained from the above function is used to create a list of dictionaries with the required parameters in output as keys and the corresponding data as values. This list is sorted based on Date, Value, Measure and Border. This list is then written into a csv file. 
 
@@ -216,7 +216,7 @@ The `border_analytics.py` script reads the input file line by line and creates t
 To execute the script move to the main directory of the project and run the following in the terminal:
 
 ```
-python ./src/border_analytics.py ./input/Border_Crossing_Entry_Data.csv ./output/report.csv
+python ./src/main.py ./input/Border_Crossing_Entry_Data.csv ./output/report.csv
 ```
 
 Alternatively, you can execute `./run.sh` script to run the code, move to the insight_testsuite and execute `./run_tests.sh` script to run all the test cases.
