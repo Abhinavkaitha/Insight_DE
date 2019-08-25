@@ -8,7 +8,7 @@ import sys
 class DataProcessor:
     def __init__(self, num_rows=-1, input_dir_path="../input/", required_column_indices=[3, 4, 5, 6]):
         self.num_rows = num_rows
-        self.input_dir_path = input_dir_path
+        self.input_dir_path = input_dir_path.split("/")[0]+"/"+input_dir_path.split("/")[1]
         self.required_column_indices = required_column_indices
         self.report_dict = collections.defaultdict(lambda: collections.defaultdict(
             lambda: (collections.defaultdict(lambda: (int, int)), 0)))
