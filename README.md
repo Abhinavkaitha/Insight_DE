@@ -209,6 +209,17 @@ Presidio,Texas,2403,US-Mexico Border,02/01/2019 12:00:00 AM,Pedestrians,152x,POI
 ```
 The first row has the wrong `Date` format. The second and third has `Value` in thw wrong format. So, these rows will be skipped.
 
+## Unit Tests
+
+The file unit_tests.py has functions to test the `read files` and `valid` functions.
+![Output of Unit tests](https://github.com/Abhinavkaitha/Insight_DE/blob/master/output/unit_test_output.png)
+
+To run the unit_tests file use the command
+
+```
+python ./src/unit_tests.py
+```
+
 ## Summary
 The `main.py` script reads the input file line by line and creates a dictionary `report_dict` (i.e, `{'US-Canada Border': 
                          {'Trains': ({'03/01/2019 12:00:00 AM': (19, int)},
