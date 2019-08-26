@@ -113,9 +113,11 @@ The values are again dictionaries.
 The first one is a dictionary with time stamp as keys and the second element gives the sum of total crossings for that combination of border and measure. 
 The dictionary in the first element of this tuple has values as tuples: the first one is the number of people crossed that border with that measure duirng that time stamp. This will add the crossings across different ports as well 
 
-For ex:
+For example consider
+```
 Hidalgo,Texas,2305,US-Mexico Border,02/01/2019 12:00:00 AM,Pedestrians,156891,POINT (-98.26278 26.1)
 Presidio,Texas,2403,US-Mexico Border,02/01/2019 12:00:00 AM,Pedestrians,15272,POINT (-104.37167 29.56056)
+```
 
 The second element will give us the cumulative average of crossings rounded to the nearest whole number, for that combination of Border and Measure, or means of crossing.
 
